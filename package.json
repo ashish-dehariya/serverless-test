@@ -1,0 +1,15 @@
+{
+  "name": "radford",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "serverless-python-requirements": "^3.3.1",
+    "serverless-wsgi": "^1.4.7"
+  }
+}
