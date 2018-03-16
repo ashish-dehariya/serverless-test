@@ -1,0 +1,11 @@
+*.pyc
+.vagrant
+.DS_Store
+.env
+env.yml
+# Serverless
+.serverless
+# Dependency directories
+node_modules
+jspm_packages
+venv/*
