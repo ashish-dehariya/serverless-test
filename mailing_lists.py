@@ -1,8 +1,8 @@
-from qualtrics_api_base import QualtricsAPIBase
+from qualtrics_api_base import 
 import json
 
 
-class MailingLists(QualtricsAPIBase):
+class MailingLists():
     def __init__(self, api_token, data_center, retries=0):
         super(MailingLists, self).__init__(api_token, data_center, retries)
 
