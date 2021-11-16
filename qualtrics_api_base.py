@@ -3,18 +3,19 @@ from requests.exceptions import HTTPError
 import time
 
 
-class QualtricsAPIBase(object):
+class test(object):
     def __init__(self, api_token, data_center, retries=0):
         if not api_token:
             raise ValueError("error: api_token must be set before making API calls")
         if not data_center:
-            raise ValueError("error: data_center must be set before making API calls")
+            raise ValueError("error: data_center must be set b
+                             efore making API calls")
         self.api_token = api_token
         self.data_center = data_center
         self._max_request_attempts = retries + 1
 
     def get_base_url(self):
-        return "https://" + self.data_center + ".qualtrics.com/API/v3/"
+        return 
 
     def get_headers(self):
         return {"X-API-TOKEN": self.api_token,
@@ -46,7 +47,7 @@ class QualtricsAPIBase(object):
                     response = requests.put(url, **kwargs)
                 else:
                     response = requests.delete(url, **kwargs)
-                QualtricsAPIBase._check_for_status(response)
+                ._check_for_status(response)
                 return response
             except HTTPError as e:
                 if i == self._max_request_attempts - 1:
