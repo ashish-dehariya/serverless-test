@@ -1,4 +1,4 @@
-git clone https://gitlab.engservices.qops.net/AonRadford/update-contact-from-response.git
+git clone 
 npm install
 $ virtualenv venv --python=python2.7
 $ source venv/bin/activate
