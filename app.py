@@ -6,8 +6,7 @@ import os
 import requests
 import logging
 import sys
-from qualtrics_api_base import QualtricsAPIBase
-from mailing_lists import MailingLists
+
 
 from flask import Flask
 app = Flask(__name__)
@@ -29,18 +28,17 @@ def updateContact():
         else: 
             return jsonify({'error': "mandatory field "+item+" missing"}), 400
     res_survey=get_response(surveyId,responseId) 
-    # https://co1.qualtrics.com/API/v3/mailinglists/ML_3eApjotf3POCy9v/contacts/MLRP_2sLR9oTNp08rBvD
-    # https://co1.qualtrics.com/API/v3/mailinglists/ML_3eApjotf3POCy9v/contacts/MLRP_2sLR9oTNp08rBvD
+ 
     if 'Error' in res_survey:
         return jsonify({'error': "Get survey failed, please check API Token and Survey details"}), 400
     else:
         embedded_data=res_survey
-        mailing_lists_client = MailingLists(os.environ.get('Q_API_TOKEN'), os.environ.get('DATA_CENTER'))
+        mailing_lists_client = MailingLists(os.environ.get(''), os.environ.get('DATA_CENTER'))
         contact=mailing_lists_client.update_contact(panelId,contactId,embedded_data)
     return jsonify(contact)
 
 def get_response(surveyId,responseId):
-    base_url = 'https://survey.qualtrics.com/WRAPI/ControlPanel/api.php'
+    base_url = ''
     payload = {'Request': 'getLegacyResponseData',
                 'User': os.environ.get('Q_USERNAME'),
                 'Token': os.environ.get('Q_API_TOKEN'),
