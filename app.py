@@ -40,7 +40,7 @@ def updateContact():
     return jsonify(contact)
 
 def get_response(surveyId,responseId):
-    base_url = 'https://survey.qualtrics.com/WRAPI/ControlPanel/api.php'
+    base_url = ''
     payload = {'Request': 'getLegacyResponseData',
                 'User': os.environ.get('Q_USERNAME'),
                 'Token': os.environ.get('Q_API_TOKEN'),
